@@ -8,7 +8,7 @@ import random
 
 # --- 1. Configuration & Page Setup ---
 st.set_page_config(page_title="Railway Ultimate AI", page_icon="🚂", layout="wide")
-GOOGLE_API_KEY = "AIzaSyBma2f1EOQHMHZGPBnjUYGWVBHpapGB3H0" 
+GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
 client = genai.Client(api_key=GOOGLE_API_KEY)
 KNOWLEDGE_FOLDER = "knowledge_base"
 
