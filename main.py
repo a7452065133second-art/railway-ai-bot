@@ -6,6 +6,23 @@ import tempfile
 import time
 import random
 
+# Simple Password Protection
+def check_password():
+    if "password_correct" not in st.session_state:
+        st.text_input("Enter Access Code", type="password", on_change=password_entered, key="password")
+        return False
+    return st.session_state["password_correct"]
+
+def password_entered():
+    if st.session_state["password"] == "Railway17": # You can change this password
+        st.session_state["password_correct"] = True
+        del st.session_state["password"]
+    else:
+        st.error("Incorrect code")
+
+if not check_password():
+    st.stop()
+
 # --- 1. Configuration & Page Setup ---
 st.set_page_config(page_title="Railway Ultimate AI", page_icon="🚂", layout="wide")
 GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
