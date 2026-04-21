@@ -14,7 +14,7 @@ def check_password():
     return st.session_state["password_correct"]
 
 def password_entered():
-    if st.session_state["password"] == "Railway1702": # You can change this password
+    if st.session_state["password"] == "Railbot1702": # You can change this password
         st.session_state["password_correct"] = True
         del st.session_state["password"]
     else:
